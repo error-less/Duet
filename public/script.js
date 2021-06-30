@@ -38,7 +38,7 @@ socket.on('user-disconnected', userId => {
 })
 
 myPeer.on('open', id => {
-  socket.emit('join-room', ROOM_ID, id)
+  socket.emit('join-room', ROOM_ID, id,user)
 })
 
 function connectToNewUser(userId, stream) {
@@ -124,12 +124,12 @@ inviteButton.addEventListener("click", (e) => {
   );
 });
 
-socket.on("createMessage", (message) => {
+socket.on("createMessage", (message,userName) => {
   messages.innerHTML =
     messages.innerHTML +
     `<div class="message">
         <b><i class="far fa-user-circle"></i> <span> ${
-          user
+          userName === user ? "me" : userName
         }</span> </b>
         <span>${message}</span>
     </div>`;
