@@ -88,7 +88,7 @@ video {
 }
 
 .background__red {
-    background-color: #f6484a;
+    background-color: #f7686a;
 }
 
 .main__right {
@@ -149,7 +149,7 @@ video {
 .message>span {
     background-color: #eeeeee;
     margin: 1rem 0;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
 }
 
