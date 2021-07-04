@@ -44,7 +44,7 @@ input{
 .input-group{
     flex-direction: column;
 }
-.mx-auto{
+.call-button{
     margin-top: 21px;
 }
 .area{
