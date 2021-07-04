@@ -40,6 +40,12 @@ input{
     text-align: center;
     padding-bottom: 7px;
 }
+.input-group{
+    flex-direction: column;
+}
+.mx-auto{
+    margin-top: 21px;
+}
 .area{
     background: #FF616D;    
     width: 100%;
@@ -160,4 +166,15 @@ input{
         border-radius: 50%;
     }
 
+}
+@media  only screen and (max-width:550px){
+    .row{
+       display:flex;
+       flex-direction: column;
+       max-width: 90%;
+    }
+    .col{
+        width: 70%;
+    }
+   
 }
