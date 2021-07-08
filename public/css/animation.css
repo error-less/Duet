@@ -27,6 +27,12 @@ body{
     z-index: 1;
     box-shadow: 3px 3px #999191
 }
+.side{
+    z-index: 1;
+    position:absolute;
+    right: 21px;
+    top: 17px;
+}
 input{
    margin:0 9px;
 }
