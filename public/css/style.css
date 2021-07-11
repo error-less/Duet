@@ -100,11 +100,14 @@ video {
 #video-grid {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 100%;
     
 }
-
+.video-group{
+    min-height: 72vh;
+}
 @media  (max-width: 1170px){
     video{
         height:auto;
