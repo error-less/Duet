@@ -38,7 +38,7 @@ navigator.mediaDevices.getUserMedia({
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
     // time delay for video display
-    setTimeout(connectToNewUser, 1000, userId, stream)
+    // setTimeout(connectToNewUser, 1000, userId, stream)
   })
 
 })
@@ -76,8 +76,6 @@ function addVideoStream(video, stream) {
     video.play()
   })
   videoGrid.append(video)
-  const video_add=document.getElementsByTagName('video')
-  video_add.classname += 'col-md-auto h-6'
 }
 console.log(videoGrid.children)
 let text = document.querySelector("#chat_message");
