@@ -76,8 +76,10 @@ function addVideoStream(video, stream) {
     video.play()
   })
   videoGrid.append(video)
+  const video_add=document.getElementsByTagName('video')
+  video_add.classname += 'col-md-auto h-6'
 }
-
+console.log(videoGrid.children)
 let text = document.querySelector("#chat_message");
 let send = document.getElementById("send");
 let messages = document.querySelector(".messages");

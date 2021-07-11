@@ -36,18 +36,15 @@ app.get('/', (req, res) => {
     
 })
 
-var name =""
-app.post("/random",(req, res)=>{
-    name=req.body.name
-    console.log(name)
-    res.redirect(`/${uuidV4()}`)
+
+app.get("/random",(req, res)=>{
+    res.redirect(`/${uuidV4().toString(16)}`)
 })
 
 // render video call room
 app.get('/:room', (req, res) => {
     res.render('room', {
         roomId: req.params.room,
-        name:name
     })
 })
 

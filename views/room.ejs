@@ -11,12 +11,15 @@
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script>
         const ROOM_ID = "<%= roomId %>";
-        const NAME = "<%= name %>";
     </script>
+    <!--bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://unpkg.com/@webpixels/css@1.0/dist/index.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="header">
+    <!-- <div class="header">
             <h2>Duet</h2>
     </div>
     <div class="main">
@@ -56,8 +59,83 @@
                 </div>
             </div>
         </div>
+    </div> -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-white px-0 py-2">
+        <div class="container-lg">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" class="h-10" alt="...">
+            </a>
+
+            <!-- Collapse -->
+            <div class="d-flex justify-content-around" id="">
+                <!-- Nav -->
+
+                <!-- Right navigation -->
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">OPEN CHAT</button>
+
+            </div>
+        </div>
+    </nav>
+  
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Chat</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body h-100 W-100 d-flex">
+            <div class="main__right h-100 d-flex W-100 bg-white">
+                <div class="main__chat_window h-100 W-100">
+                    <div class="messages ">
+    
+                    </div>
+                </div>
+                <div class="main__message_container">
+                    <input id="chat_message" type="text" autocomplete="off" placeholder="Type message here...">
+                    <div id="send" class="options__button">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="video-group align-middle d-flex " id="video-grid" >
+
+    </div>
+
+
+    <div class="fixed-bottom bg-primary py-3 d-flex justify-content-center">
+        <div class="buttons d-flex justify-content-around">
+            <div class="button">
+                <div id="stopVideo" class="options__button">
+                    <i class="fa fa-video-camera"></i>
+                </div>
+            </div>
+            <div class="button ">
+                <div id="muteButton" class="options__button">
+                    <i class="fa fa-microphone"></i>
+                </div>
+            </div>
+            <div class="button">
+                <div id="inviteButton" class="options__button">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+            </div>
+            <div class="button ">
+                <div id="endcall" class="options__button bg-danger text-white">
+                    <i class="fas fa-phone-slash"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="JS/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+</script>
 
 </html>
