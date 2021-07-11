@@ -105,14 +105,7 @@ video {
     
 }
 
-@media (max-width: 500px) {
-
-    video {
-        height: 200px;
-        width: 80%;
-    }
-}
-@media (min-width:500px) and (max-width: 1170px){
+@media  (max-width: 1170px){
     video{
         height:auto;
         width: 300px;
