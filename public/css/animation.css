@@ -2,9 +2,10 @@
     margin: 0;
     padding: 0;
 }
-
-#navbarSupportedContent{
-    position: absolute;
-    right: 7px;
-    top: 5px;
+@media (min-width:766px) {
+    #navbarSupportedContent{
+        position: absolute;
+        right: 7px;
+        top: 5px;
+    }
 }
