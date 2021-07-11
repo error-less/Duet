@@ -1,51 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
-:root {
-    --main-darklg: #1d2635;
-    --main-dark: #161d29;
-    --main-light: #eeeeee;
-    font-family: "Poppins", sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8vh;
-    position: relative;
-    width: 100%;
-    background-color: var(--main-darklg);
-}
-
-.header>h2 {
-    color: var(--main-light);
-}
-
-.main {
-    overflow: hidden;
-    height: 92vh;
-    display: flex;
-    
-}
-
-.main__left {
-    flex: 0.8;
-    display: flex;
-    flex-direction: column;
-}
-
-.videos__group {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--main-dark);
 }
 
 video {
@@ -57,22 +14,6 @@ video {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
-}
-
-.options {
-    padding: 1rem;
-    display: flex;
-    background-color: var(--main-darklg);
-
-}
-
-.options__left {
-    display: flex;
-}
-
-.options__right {
-    margin-left: auto;
-    display: flex;
 }
 
 .options__button {
@@ -95,8 +36,6 @@ video {
 .main__right {
     display: flex;
     flex-direction: column;
-    flex: 0.2;
-    background-color: #242f41;
 }
 
 .main__chat_window {
@@ -104,9 +43,9 @@ video {
     overflow-y: scroll;
 }
 
-.main__chat_window::-webkit-scrollbar {
+ .main__chat_window::-webkit-scrollbar {
     display: none;
-}
+} 
 
 .main__message_container {
     padding: 1rem;
@@ -128,7 +67,7 @@ video {
 .messages {
     display: flex;
     flex-direction: column;
-    margin: 1.5rem;
+    margin: 1rem;
 }
 
 .message {
