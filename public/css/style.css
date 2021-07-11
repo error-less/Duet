@@ -107,22 +107,14 @@ video {
 
 
 
-@media (max-width: 650px) {
-    .main__right {
-        display: none;
-    }
-
-    .main__left {
-        width: 100%;
-        flex: 1;
-    }
+@media (max-width: 500px) {
 
     video {
         height: 200px;
         width: 80%;
     }
 }
-@media (min-width:650px) and (max-width: 1170px){
+@media (min-width:500px) and (max-width: 1170px){
     video{
         height:auto;
         width: 300px;
