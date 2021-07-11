@@ -72,6 +72,7 @@ video {
 
 .options__right {
     margin-left: auto;
+    display: flex;
 }
 
 .options__button {
@@ -88,7 +89,7 @@ video {
 }
 
 .background__red {
-    background-color: #f7686a;
+    background-color: #f6484a;
 }
 
 .main__right {
@@ -143,13 +144,13 @@ video {
 
 .message>b>i {
     margin-right: 0.7rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .message>span {
     background-color: #eeeeee;
     margin: 1rem 0;
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 5px;
 }
 
@@ -165,7 +166,7 @@ video {
 
 
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
     .main__right {
         display: none;
     }
@@ -178,5 +179,11 @@ video {
     video {
         height: 200px;
         width: 80%;
+    }
+}
+@media (min-width:650px) and (max-width: 1170px){
+    video{
+        height:auto;
+        width: 300px;
     }
 }

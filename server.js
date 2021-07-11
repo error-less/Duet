@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
-const mongoose = require('mongoose')
 
 
 const { ExpressPeerServer } = require('peer');
@@ -21,65 +20,28 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser:true,useUnifiedTopology: true});
-const userSchema={
-    email: String,
-    password: String
-}
-const User=new mongoose.model("User",userSchema);
-
 app.get('/', (req, res) => {
     res.render('home')
     
 })
-app.get("/login", function (req, res) {
-    res.render("login");
-});
 
-app.get("/register", function (req, res) {
-    res.render("register");
-});
-app.post("/register",(req, res)=>{
-    const newUser =new User({
-        email: req.body.username,
-        password: req.body.password,
-    });
-    newUser.save(function(err){
-        if(err){
-            console.log(err)
-        }
-        else{
-            res.redirect(`/${uuidV4()}`)
-        }
-    })
+var name =""
+app.post("/random",(req, res)=>{
+    name=req.body.name
+    console.log(name)
+    res.redirect(`/${uuidV4()}`)
 })
 
-app.post("/login", function (req, res){
-    const username = req.body.username
-    const password = req.body.password
-
-    User.findOne({email: username},function(err,foundUser){
-        if(err){
-            console.log(err);
-        }
-        else{
-            if(foundUser){
-                if(foundUser.password===password){
-                    res.redirect(`/${uuidV4()}`)
-                }
-            }
-        }
-    })
-
-})
 app.get('/:room', (req, res) => {
     res.render('room', {
-        roomId: req.params.room
+        roomId: req.params.room,
+        name:name
     })
 })
 
 io.on('connection', socket => {
     socket.on('join-room', (roomId, userId,userName) => {
+        console.log("user joined")
         socket.join(roomId)
         socket.broadcast.to(roomId).emit('user-connected', userId)
         console.log("user:", userId);
@@ -90,11 +52,12 @@ io.on('connection', socket => {
         }); 
         socket.on('disconnect', () => {
             socket.broadcast.to(roomId).emit('user-disconnected', userId)
+            console.log("user disconnected")
         })
        
     })
 })
 
-server.listen(3000, () => {
-    console.log("server started on port 3000");
+server.listen(process.env.PORT || 3000, () => {
+    console.log("server started on port");
 })

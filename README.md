@@ -5,7 +5,6 @@ A Microsoft Teams Clone made under Microsoft Engage 2021 program.
 ## Features
 
 - Multi people video call feature
-- User Authentication
 - Video/Audio off/on feature
 - Chat feature within meeting
 - Fully responsive for mobile devices
@@ -18,7 +17,6 @@ A Microsoft Teams Clone made under Microsoft Engage 2021 program.
 ## Backend
 
 - #### Server used : [Express JS](https://expressjs.com/)
-- #### Database used : [MongoDB]
 
 ## Frontend
     ejs as templating language
