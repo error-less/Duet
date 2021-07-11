@@ -1,6 +1,11 @@
+// initialization of socket in client side
 const socket = io()
+
+// getting user name to display during chat
 const user = prompt("Enter your name");
 const videoGrid = document.getElementById('video-grid')
+
+// running peer server to client side
 const myPeer = new Peer(undefined, {
   path: '/peerjs',
   host: '/',
@@ -12,6 +17,8 @@ myVideo.muted = true
 
 const peers = {}
 let myVideoStream;
+
+// webRTC asking permision for audio and video
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
@@ -27,21 +34,26 @@ navigator.mediaDevices.getUserMedia({
     })
   })
 
+  // user connected
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
+    // time delay for video display
     setTimeout(connectToNewUser, 1000, userId, stream)
   })
 
 })
 
+// user disconnected to client side
 socket.on('user-disconnected', userId => {
   if (peers[userId]) peers[userId].close()
 })
 
 myPeer.on('open', id => {
+  // joining room to server
   socket.emit('join-room', ROOM_ID, id,user)
 })
 
+// connecting to new user
 function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
@@ -57,6 +69,7 @@ function connectToNewUser(userId, stream) {
   peers[userId] = call
 }
 
+// adding stream and display
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
@@ -69,6 +82,7 @@ let text = document.querySelector("#chat_message");
 let send = document.getElementById("send");
 let messages = document.querySelector(".messages");
 
+// send messages 
 send.addEventListener("click", (e) => {
   if (text.value.length !== 0) {
     socket.emit("message", text.value);
@@ -76,6 +90,7 @@ send.addEventListener("click", (e) => {
   }
 });
 
+// send message on enter button
 text.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && text.value.length !== 0) {
     socket.emit("message", text.value);
@@ -86,6 +101,8 @@ text.addEventListener("keydown", (e) => {
 const inviteButton = document.querySelector("#inviteButton");
 const muteButton = document.querySelector("#muteButton");
 const stopVideo = document.querySelector("#stopVideo");
+
+// mute the audio during call
 muteButton.addEventListener("click", () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
@@ -102,6 +119,8 @@ muteButton.addEventListener("click", () => {
   }
 });
 
+
+// to stop the video on clicking mute video
 stopVideo.addEventListener("click", () => {
   const enabled = myVideoStream.getVideoTracks()[0].enabled;
   if (enabled) {
@@ -118,6 +137,7 @@ stopVideo.addEventListener("click", () => {
   }
 });
 
+// to add more people in meeting
 inviteButton.addEventListener("click", (e) => {
   prompt(
     "Copy this link and send it to people you want to meet with",
@@ -125,6 +145,8 @@ inviteButton.addEventListener("click", (e) => {
   );
 });
 
+
+// getting message in client side
 socket.on("createMessage", (message,userName) => {
   messages.innerHTML =
     messages.innerHTML +
