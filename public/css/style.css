@@ -4,7 +4,9 @@
     margin: 0;
     padding: 0;
 }
-
+#offcanvasRight{
+    border-radius:17px;
+}
 video {
     height: auto;
     border-radius: 1rem;
@@ -102,10 +104,6 @@ video {
     width: 100%;
     
 }
-
-
-
-
 
 @media (max-width: 500px) {
 
