@@ -19,5 +19,7 @@ A Microsoft Teams Clone made under Microsoft Engage 2021 program.
 - #### Server used : [Express JS](https://expressjs.com/)
 
 ## Frontend
-    ejs as templating language
-    CSS and JavaScript for styling
+    
+- ejs as a templating language
+- - CSS and javascript for styling
+- Bootstrap for responsivness
