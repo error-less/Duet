@@ -21,5 +21,5 @@ A Microsoft Teams Clone made under Microsoft Engage 2021 program.
 ## Frontend
     
 - ejs as a templating language
-- - CSS and javascript for styling
+- CSS and javascript for styling
 - Bootstrap for responsivness
