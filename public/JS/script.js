@@ -4,6 +4,7 @@ const socket = io()
 // getting user name to display during chat
 const user = prompt("Enter your name");
 const videoGrid = document.getElementById('video-grid')
+const endcall= document.getElementById('end-call')
 
 // running peer server to client side
 const myPeer = new Peer(undefined, {
@@ -47,6 +48,11 @@ navigator.mediaDevices.getUserMedia({
 socket.on('user-disconnected', userId => {
   if (peers[userId]) peers[userId].close()
 })
+
+endcall.addEventListener("click", ()=>{
+  location.href='/'
+})
+
 
 myPeer.on('open', id => {
   // joining room to server
