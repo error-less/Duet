@@ -56,7 +56,7 @@ video {
     justify-content: center;
 }
 
-.main__message_container>input {
+#chat_message {
     height: 40px;
     flex: 1;
     font-size: 1rem;
@@ -64,6 +64,7 @@ video {
     border-radius: 5px;
     padding-left: 20px;
     border: none;
+    
 }
 
 .messages {
@@ -107,6 +108,10 @@ video {
 }
 .video-group{
     min-height: 72vh;
+}
+#send{
+    border: 1px solid black;
+    
 }
 @media  (max-width: 1170px){
     video{
